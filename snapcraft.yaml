@@ -33,6 +33,8 @@ parts:
       - libdqlite0
     make-parameters:
       - jujud-controller
+      - JUJU_BUILD_NUMBER=0
+      - CROSS_BUILD=0
     override-build: |
       snapcraftctl build
       mkdir $SNAPCRAFT_PART_INSTALL/bin
