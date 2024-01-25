@@ -31,6 +31,8 @@ parts:
       - go/1.21/stable
     stage-packages:
       - libdqlite0
+      - libraft3
+      - libsqlite3
     make-parameters:
       - jujud-controller
       - JUJU_BUILD_NUMBER=0
