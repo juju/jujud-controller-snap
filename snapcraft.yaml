@@ -37,6 +37,8 @@ parts:
       - jujud-controller
       - JUJU_BUILD_NUMBER=0
       - CROSS_BUILD=0
+    build-attributes:
+      - enable-patchelf
     override-build: |
       snapcraftctl build
       mkdir $SNAPCRAFT_PART_INSTALL/bin
