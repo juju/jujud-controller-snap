@@ -38,4 +38,4 @@ parts:
     override-build: |
       snapcraftctl build
       mkdir $SNAPCRAFT_PART_INSTALL/bin
-      cp $HOME/go/bin/jujud-controller $SNAPCRAFT_PART_INSTALL/bin/jujud-controller
+      cp $SNAPCRAFT_PART_BUILD/_build/linux_$(go env GOARCH)/bin/jujud-controller $SNAPCRAFT_PART_INSTALL/bin/jujud-controller
