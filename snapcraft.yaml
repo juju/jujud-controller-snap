@@ -19,6 +19,11 @@ package-repositories:
 
 parts:
   jujud-controller:
+    source: https://github.com/hpidcock/juju
+    source-type: git
+    source-branch: jujud-controller
+    source-depth: 1
+    plugin: make
     build-packages:
       - libdqlite-dev
       - gcc
@@ -26,9 +31,6 @@ parts:
       - go/1.21/stable
     stage-packages:
       - libdqlite0
-    plugin: make
-    source: github.com/hpidcock/juju
-    source-branch: jujud-controller
     make-parameters:
       - jujud-controller
     override-build: |
