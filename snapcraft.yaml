@@ -32,7 +32,7 @@ parts:
     stage-packages:
       - libdqlite0
       - libraft3
-      - libsqlite3
+      - libsqlite3-0
     make-parameters:
       - jujud-controller
       - JUJU_BUILD_NUMBER=0
