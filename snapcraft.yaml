@@ -1,0 +1,37 @@
+name: jujud-controller
+version: 3.4-beta1
+summary: Juju Controller - a controller for Juju models 
+license: AGPL-3.0
+description: |
+  The juju controller as a snap.
+
+confinement: classic
+grade: devel
+base: core22
+
+apps:
+  jujud-controller:
+    command: bin/jujud-controller
+
+package-repositories:
+ - type: apt
+   ppa: dqlite/dev
+
+parts:
+  jujud-controller:
+    build-packages:
+      - libdqlite-dev
+      - gcc
+    build-snaps:
+      - go/1.21/stable
+    stage-packages:
+      - libdqlite0
+    plugin: make
+    source: github.com/hpidcock/juju
+    source-branch: jujud-controller
+    make-parameters:
+      - jujud-controller
+    override-build: |
+      snapcraftctl build
+      mkdir $SNAPCRAFT_PART_INSTALL/bin
+      cp $HOME/go/bin/jujud-controller $SNAPCRAFT_PART_INSTALL/bin/jujud-controller
